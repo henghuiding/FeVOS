@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="title" content="FeVOS: Foresight Expression Video Object Segmentation">
+  <meta name="description" content="FeVOS introduces foresight expression video object segmentation for anticipatory pixel-level video grounding. Accepted to ECCV 2026.">
+  <meta name="keywords" content="FeVOS, video object segmentation, referring video object segmentation, predictive reasoning, ECCV 2026">
+  <meta name="author" content="Kehan Lan, Kaining Ying, Henghui Ding">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="FeVOS: Foresight Expression Video Object Segmentation">
+  <meta property="og:description" content="ECCV 2026 project page for FeVOS.">
+  <meta property="og:image" content="assets/teaser.png">
+  <meta name="citation_title" content="FeVOS: Foresight Expression Video Object Segmentation">
+  <meta name="citation_author" content="Lan, Kehan">
+  <meta name="citation_author" content="Ying, Kaining">
+  <meta name="citation_author" content="Ding, Henghui">
+  <meta name="citation_publication_date" content="2026">
+  <meta name="citation_conference_title" content="European Conference on Computer Vision">
+
+  <title>FeVOS | ECCV 2026</title>
+  <link rel="icon" type="image/svg+xml" href="assets/fevos-mark.svg">
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <main>
+    <section class="hero publication-header">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-1 publication-title">
+                <span class="title-line">
+                  <img class="title-mark" src="assets/fevos-mark.svg" alt="FeVOS iron block mark">
+                  <span>FeVOS:</span>
+                </span>
+                <span>Foresight Expression Video Object Segmentation</span>
+              </h1>
+
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">Kehan Lan</span>
+                <span class="author-block">Kaining Ying</span>
+                <span class="author-block"><a href="https://henghuiding.com/" target="_blank" rel="noreferrer">Henghui Ding</a><sup>&dagger;</sup></span>
+              </div>
+
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">Fudan University</span>
+              </div>
+              <div class="is-size-6 publication-note"><sup>&dagger;</sup>Corresponding author</div>
+              <div class="is-size-5 publication-venue">ECCV 2026</div>
+
+              <div class="publication-links">
+                <span class="link-block">
+                  <a class="external-link button is-normal is-rounded is-dark" href="https://arxiv.org/abs/2606.25585" target="_blank" rel="noreferrer">
+                    <span class="icon"><i class="ai ai-arxiv"></i></span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a class="external-link button is-normal is-rounded is-dark" href="https://github.com/FudanCVL/FeVOS/" target="_blank" rel="noreferrer">
+                    <span class="icon"><i class="fab fa-github"></i></span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a class="external-link button is-normal is-rounded is-dark" href="https://huggingface.co/datasets/FudanCVL/FeVOS" target="_blank" rel="noreferrer">
+                    <span class="icon hf-icon">🤗</span>
+                    <span>Dataset</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a class="external-link button is-normal is-rounded is-dark" href="https://huggingface.co/datasets/FudanCVL/FeVOS-R1" target="_blank" rel="noreferrer">
+                    <span class="icon hf-icon">🤗</span>
+                    <span>Checkpoint</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero teaser">
+      <div class="container is-max-desktop">
+        <div class="hero-body">
+          <img class="paper-image" src="assets/teaser.png" alt="FeVOS teaser comparing observed-frame referring segmentation with foresight expression segmentation.">
+          <h2 class="subtitle has-text-centered">
+            Comparison of related datasets with Foresight Expression Video Object
+            Segmentation (FeVOS). Unlike existing datasets (Ref-DAVIS, MeViS) that
+            ground expressions describing observable events (e.g., in the sink, moved),
+            our task requires predicting which object will be involved in future events
+            based on observed visual cues. In this case, given the foresight expression
+            "What tool will be used?", the model must analyze temporal context (dirty
+            pot) and spatial cues (hand states) to anticipate the correct target.
+          </h2>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+              <p>
+                Existing Referring Video Object Segmentation tasks focus on referring
+                expressions describing events, actions or appearances of relevant objects
+                within the observed frames, lacking evaluation in scenarios that require
+                pre-decisive spatio-temporal reasoning, thereby limiting their
+                applicability. To address this, we propose Foresight Expression Video
+                Object Segmentation, a task that queries future events in upcoming video
+                segments and requires masks of the objects in the observed frames as
+                visual answers. For example, in ego-centric scenes, the question "What
+                tool will be used?" demands reasoning over spatio-temporal cues to
+                predict the masks of the next tool to be used, which helps with the
+                understanding of future actions and decisions. To support this task, we
+                introduce FeVOS, a dataset with 968 video clips, 14,525 foresight
+                expressions, and 2,904 chain-of-thought annotations to provide explicit
+                and interpretable reasoning steps. We further develop FeVOS-R1, an
+                MLLM-based model trained on our dataset via a two-stage pipeline of
+                supervised fine-tuning and reinforcement learning. FeVOS-R1 not only
+                achieves state-of-the-art performance on FeVOS, but also demonstrates
+                strong generalization to existing RVOS benchmarks. We hope this work can
+                inspire more research on predictive reasoning in video perception.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section is-light">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column">
+            <h2 class="title is-3 has-text-centered">Dataset</h2>
+            <div class="content has-text-justified narrow-copy">
+              <p>
+                Given a video clip and a predictive expression describing future events,
+                the model outputs pixel-level segmentation masks for objects in the
+                observed frames. Unlike traditional RVOS, our task requires reasoning
+                about future actions or events based solely on cues from observed frames.
+              </p>
+              <p>
+                Through our annotation pipeline, we curated FeVOS, which contains 968
+                video clips with 14,525 foresight expressions and corresponding
+                pixel-level segmentation masks. Each expression is paired with precise
+                annotations identifying target objects across all frames in the
+                observation segment. Additionally, we generated 2,904 synthetic
+                chain-of-thought annotations to provide explicit reasoning supervision.
+              </p>
+            </div>
+            <img class="paper-image" src="assets/examples.png" alt="Representative FeVOS samples with foresight expressions and reasoning annotations.">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered">Baseline Method</h2>
+        <div class="content has-text-justified narrow-copy">
+          <p>
+            Sa2VA is a unified framework that integrates MLLM with SAM2 for referring
+            video object segmentation. The architecture consists of three key
+            components: a vision encoder that extracts visual features from video
+            frames, a large language model that processes both visual embeddings and
+            text prompts to generate responses with special segmentation tokens, and
+            SAM2's mask decoder that produces pixel-wise segmentation masks conditioned
+            on the hidden states of segmentation tokens.
+          </p>
+          <p>
+            We implement our method FeVOS-R1 based on Sa2VA via a two-stage training
+            paradigm. Given an input video, we first sample a sequence of frames and
+            encode them using the vision encoder to obtain visual embeddings. These
+            embeddings, along with a text prompt, are processed by the LLM to generate a
+            response containing a special token [SEG]. The hidden states of [SEG] are
+            then projected and fed into SAM2's mask decoder to predict a segmentation
+            mask sequence for the input frames.
+          </p>
+          <p>
+            To equip the model with basic reasoning capabilities, we perform supervised
+            fine-tuning using our synthetic CoT dataset. While supervised fine-tuning
+            provides preliminary knowledge of reasoning, the reasoning process remains
+            suboptimal in quality and weakly aligned with segmentation objectives. We
+            employ GRPO to further refine the reasoning process that leads to high
+            segmentation quality with task-specific objectives.
+          </p>
+          <p>
+            Unlike existing visual grounding methods that require models to output
+            intermediate representations such as bounding box coordinates in JSON
+            format, we leverage the [SEG] token to support end-to-end optimization that
+            directly maximizes segmentation accuracy.
+          </p>
+        </div>
+        <img class="paper-image" src="assets/method.png" alt="Overview of the FeVOS-R1 two-stage training pipeline.">
+      </div>
+    </section>
+
+    <section class="section is-light" id="results">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered">Results</h2>
+        <div class="content has-text-justified narrow-copy">
+          <p>
+            We comprehensively benchmark a range of recent video segmentation models on
+            the proposed FeVOS dataset. Zero-shot models exhibit substantial difficulty
+            with our predictive reasoning task, with J&amp;F scores below 31.0. When
+            directly fine-tuning Sa2VA on FeVOS using standard SFT without CoT
+            enhancement, performance improves markedly from 25.4 to 35.8. Our complete
+            training pipeline, incorporating both CoT-guided reasoning and RL-based
+            optimization, further pushes the performance to 42.3, achieving an
+            additional +6.5 gain over the SFT baseline.
+          </p>
+          <p>
+            This demonstrates that explicit reasoning chains and reward-guided
+            optimization are essential for capturing subtle visual cues required for
+            accurate future event prediction. Notably, the performance on FeVOS is
+            substantially lower than on ReVOS and MeViS, highlighting the increased
+            complexity and challenge posed by predictive segmentation, which requires
+            models to anticipate future events from visual cues rather than grounding
+            expressions about observable events.
+          </p>
+          <p>
+            On ReVOS, the directly fine-tuned baseline Sa2VA* suffers a performance drop
+            compared to its zero-shot counterpart, suggesting overfitting to FeVOS, while
+            our method achieves 60.3, outperforming both baselines with particularly
+            strong gains on the reasoning subset. On MeViS, our method reaches 49.5,
+            representing a +3.0 improvement over the baseline and surpassing all
+            comparable-sized models. These results demonstrate that our CoT-augmented
+            and RL-enhanced training strategy not only improves in-domain performance
+            but also substantially enhances cross-domain generalization, particularly in
+            reasoning-intensive scenes.
+          </p>
+        </div>
+        <figure class="result-figure">
+          <img src="assets/table_fevos.png" alt="Main quantitative results on the FeVOS dataset.">
+        </figure>
+        <figure class="result-figure">
+          <img src="assets/table_generalization.png" alt="Quantitative generalization results on ReVOS and MeViS.">
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="citation">
+      <div class="container is-max-desktop content">
+        <div class="bibtex-header">
+          <h2 class="title">BibTeX</h2>
+          <button class="copy-bibtex-btn" type="button" data-copy-target="bibtex-code">
+            <span class="icon"><i class="fas fa-copy"></i></span>
+            <span data-copy-label>Copy</span>
+          </button>
+        </div>
+        <pre id="bibtex-code"><code>@inproceedings{lan2026fevos,
+  title={FeVOS: Foresight Expression Video Object Segmentation},
+  author={Lan, Kehan and Ying, Kaining and Ding, Henghui},
+  booktitle={ECCV},
+  year={2026}
+}</code></pre>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container is-max-desktop">
+      <div class="content has-text-centered">
+        <p>
+          Built with the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noreferrer">Academic Project Page Template</a>.
+        </p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
