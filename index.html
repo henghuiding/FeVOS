@@ -10,7 +10,7 @@
   <meta property="og:type" content="article">
   <meta property="og:title" content="FeVOS: Foresight Expression Video Object Segmentation">
   <meta property="og:description" content="ECCV 2026 project page for FeVOS.">
-  <meta property="og:image" content="assets/teaser.png">
+  <meta property="og:image" content="assets/teaser.webp">
   <meta name="citation_title" content="FeVOS: Foresight Expression Video Object Segmentation">
   <meta name="citation_author" content="Lan, Kehan">
   <meta name="citation_author" content="Ying, Kaining">
@@ -19,7 +19,10 @@
   <meta name="citation_conference_title" content="European Conference on Computer Vision">
 
   <title>FeVOS | ECCV 2026</title>
-  <link rel="icon" type="image/jpeg" href="static/images/fudancvl.png">
+  <link rel="icon" type="image/svg+xml" href="assets/fevos-mark.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
@@ -28,145 +31,395 @@
   <script defer src="script.js"></script>
 </head>
 <body>
-  <main>
-    <section class="hero publication-header">
-      <div class="hero-body">
-        <div class="container is-max-desktop">
-          <div class="columns is-centered">
-            <div class="column has-text-centered">
-              <h1 class="title is-1 publication-title">
-                <span class="title-line">
-                  <img class="title-mark" src="assets/fevos-mark.svg" alt="FeVOS iron block mark">
-                  <span>FeVOS:</span>
-                </span>
-                <span>Foresight Expression Video Object Segmentation</span>
-              </h1>
-
-              <div class="is-size-5 publication-authors">
-                <span class="author-block">Kehan Lan</span>
-                <span class="author-block">Kaining Ying</span>
-                <span class="author-block"><a href="https://henghuiding.com/" target="_blank" rel="noreferrer">Henghui Ding</a><sup>&dagger;</sup></span>
-              </div>
-
-              <div class="is-size-5 publication-authors">
-                <span class="author-block">Fudan University</span>
-              </div>
-              <div class="is-size-6 publication-note"><sup>&dagger;</sup>Corresponding author</div>
-              <div class="is-size-5 publication-venue">ECCV 2026</div>
-
-              <div class="publication-links">
-                <span class="link-block">
-                  <a class="external-link button is-normal is-rounded is-dark" href="https://arxiv.org/abs/2606.25585" target="_blank" rel="noreferrer">
-                    <span class="icon"><i class="ai ai-arxiv"></i></span>
-                    <span>arXiv</span>
-                  </a>
-                </span>
-                <span class="link-block">
-                  <a class="external-link button is-normal is-rounded is-dark" href="https://github.com/FudanCVL/FeVOS/" target="_blank" rel="noreferrer">
-                    <span class="icon"><i class="fab fa-github"></i></span>
-                    <span>Code</span>
-                  </a>
-                </span>
-                <span class="link-block">
-                  <a class="external-link button is-normal is-rounded is-dark" href="https://huggingface.co/datasets/FudanCVL/FeVOS" target="_blank" rel="noreferrer">
-                    <span class="icon hf-icon">🤗</span>
-                    <span>Dataset</span>
-                  </a>
-                </span>
-                <span class="link-block">
-                  <a class="external-link button is-normal is-rounded is-dark" href="https://huggingface.co/datasets/FudanCVL/FeVOS-R1" target="_blank" rel="noreferrer">
-                    <span class="icon hf-icon">🤗</span>
-                    <span>Checkpoint</span>
-                  </a>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
+  <!-- Fixed navigation -->
+  <nav class="site-nav" id="site-nav" aria-label="Page sections">
+    <div class="site-nav__inner">
+      <a class="site-nav__brand" href="#top">
+        <img src="assets/fevos-mark.svg" alt="FeVOS mark" width="26" height="26">
+        <span>FeVOS</span>
+      </a>
+      <div class="site-nav__links">
+        <a href="#abstract" data-nav-link>Abstract</a>
+        <a href="#dataset" data-nav-link>Dataset</a>
+        <a href="#method" data-nav-link>Method</a>
+        <a href="#results" data-nav-link>Results</a>
+        <a href="#citation" data-nav-link>BibTeX</a>
       </div>
-    </section>
+      <div class="site-nav__cta">
+        <a class="site-nav__pill" href="https://arxiv.org/abs/2606.25585" target="_blank" rel="noreferrer">
+          <i class="ai ai-arxiv"></i><span>arXiv</span>
+        </a>
+        <a class="site-nav__pill is-icon" href="https://github.com/FudanCVL/FeVOS/" target="_blank" rel="noreferrer" aria-label="Code on GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+    </div>
+  </nav>
 
-    <section class="hero teaser">
-      <div class="container is-max-desktop">
-        <div class="hero-body">
-          <img class="paper-image" src="assets/teaser.png" alt="FeVOS teaser comparing observed-frame referring segmentation with foresight expression segmentation.">
-          <h2 class="subtitle has-text-centered">
+  <main id="top">
+    <!-- HERO -->
+    <header class="hero-x">
+      <div class="hero-x__bg" aria-hidden="true">
+        <span class="hero-x__glow hero-x__glow--a"></span>
+        <span class="hero-x__glow hero-x__glow--b"></span>
+        <span class="hero-x__grid"></span>
+      </div>
+
+      <div class="hero-x__inner">
+        <a class="hero-x__badge" href="#results">
+          <span class="hero-x__badge-dot"></span>
+          Accepted to ECCV 2026
+        </a>
+
+        <div class="hero-x__mark">
+          <img src="assets/fe-icon.webp" alt="FeVOS metallic iron block mark">
+        </div>
+
+        <h1 class="hero-x__title">
+          <span class="hero-x__title-key">FeVOS</span>
+          <span class="hero-x__title-sub">Foresight Expression Video Object Segmentation</span>
+        </h1>
+
+        <div class="hero-x__authors">
+          <span class="author-block">Kehan Lan</span>
+          <span class="author-block">Kaining Ying</span>
+          <span class="author-block"><a href="https://henghuiding.com/" target="_blank" rel="noreferrer">Henghui Ding</a><i class="fas fa-envelope corr-mark" title="Corresponding author" aria-label="Corresponding author"></i></span>
+        </div>
+        <div class="hero-x__affil">
+          Fudan University
+        </div>
+
+        <div class="hero-x__links">
+          <a class="btn-x btn-x--primary" href="https://arxiv.org/abs/2606.25585" target="_blank" rel="noreferrer">
+            <span class="icon"><i class="ai ai-arxiv"></i></span><span>arXiv</span>
+          </a>
+          <a class="btn-x" href="https://github.com/FudanCVL/FeVOS/" target="_blank" rel="noreferrer">
+            <span class="icon"><i class="fab fa-github"></i></span><span>Code</span>
+          </a>
+          <a class="btn-x" href="https://huggingface.co/datasets/FudanCVL/FeVOS" target="_blank" rel="noreferrer">
+            <span class="icon hf-icon">&#129303;</span><span>Dataset</span>
+          </a>
+          <a class="btn-x" href="https://huggingface.co/FudanCVL/FeVOS-R1" target="_blank" rel="noreferrer">
+            <span class="icon hf-icon">&#129303;</span><span>Checkpoint</span>
+          </a>
+        </div>
+
+        <!-- Stats strip -->
+        <dl class="hero-x__stats" aria-label="Dataset and result highlights">
+          <div class="stat-x">
+            <dt class="stat-x__num" data-count="968">968</dt>
+            <dd class="stat-x__label">Video clips</dd>
+          </div>
+          <div class="stat-x">
+            <dt class="stat-x__num" data-count="14525">14,525</dt>
+            <dd class="stat-x__label">Foresight expressions</dd>
+          </div>
+          <div class="stat-x">
+            <dt class="stat-x__num" data-count="2904">2,904</dt>
+            <dd class="stat-x__label">CoT annotations</dd>
+          </div>
+          <div class="stat-x is-accent">
+            <dt class="stat-x__num" data-count="42.3" data-decimals="1">42.3</dt>
+            <dd class="stat-x__label">J&amp;F &middot; FeVOS-R1</dd>
+          </div>
+        </dl>
+      </div>
+
+      <a class="hero-x__scroll" href="#teaser" aria-label="Scroll to content">
+        <span></span>
+      </a>
+    </header>
+
+    <!-- TEASER -->
+    <section class="section-x" id="teaser">
+      <div class="wrap">
+        <figure class="figure-x reveal">
+          <img class="paper-image" src="assets/teaser.webp" alt="FeVOS teaser comparing observed-frame referring segmentation with foresight expression segmentation.">
+          <figcaption>
             Comparison of related datasets with Foresight Expression Video Object
             Segmentation (FeVOS). Unlike existing datasets (Ref-DAVIS, MeViS) that
             ground expressions describing observable events (e.g., in the sink, moved),
             our task requires predicting which object will be involved in future events
             based on observed visual cues. In this case, given the foresight expression
-            "What tool will be used?", the model must analyze temporal context (dirty
+            &ldquo;What tool will be used?&rdquo;, the model must analyze temporal context (dirty
             pot) and spatial cues (hand states) to anticipate the correct target.
-          </h2>
-        </div>
+          </figcaption>
+        </figure>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered has-text-centered">
-          <div class="column is-four-fifths">
-            <h2 class="title is-3">Abstract</h2>
-            <div class="content has-text-justified">
-              <p>
-                Existing Referring Video Object Segmentation tasks focus on referring
-                expressions describing events, actions or appearances of relevant objects
-                within the observed frames, lacking evaluation in scenarios that require
-                pre-decisive spatio-temporal reasoning, thereby limiting their
-                applicability. To address this, we propose Foresight Expression Video
-                Object Segmentation, a task that queries future events in upcoming video
-                segments and requires masks of the objects in the observed frames as
-                visual answers. For example, in ego-centric scenes, the question "What
-                tool will be used?" demands reasoning over spatio-temporal cues to
-                predict the masks of the next tool to be used, which helps with the
-                understanding of future actions and decisions. To support this task, we
-                introduce FeVOS, a dataset with 968 video clips, 14,525 foresight
-                expressions, and 2,904 chain-of-thought annotations to provide explicit
-                and interpretable reasoning steps. We further develop FeVOS-R1, an
-                MLLM-based model trained on our dataset via a two-stage pipeline of
-                supervised fine-tuning and reinforcement learning. FeVOS-R1 not only
-                achieves state-of-the-art performance on FeVOS, but also demonstrates
-                strong generalization to existing RVOS benchmarks. We hope this work can
-                inspire more research on predictive reasoning in video perception.
-              </p>
+    <!-- ABSTRACT -->
+    <section class="section-x" id="abstract">
+      <div class="wrap">
+        <div class="kicker reveal"><span>01</span> Abstract</div>
+        <h2 class="section-x__title reveal">Reasoning about what happens next</h2>
+        <div class="prose reveal">
+          <p>
+            Existing Referring Video Object Segmentation tasks focus on referring
+            expressions describing events, actions or appearances of relevant objects
+            within the observed frames, lacking evaluation in scenarios that require
+            pre-decisive spatio-temporal reasoning, thereby limiting their
+            applicability. To address this, we propose Foresight Expression Video
+            Object Segmentation, a task that queries future events in upcoming video
+            segments and requires masks of the objects in the observed frames as
+            visual answers. For example, in ego-centric scenes, the question &ldquo;What
+            tool will be used?&rdquo; demands reasoning over spatio-temporal cues to
+            predict the masks of the next tool to be used, which helps with the
+            understanding of future actions and decisions. To support this task, we
+            introduce FeVOS, a dataset with 968 video clips, 14,525 foresight
+            expressions, and 2,904 chain-of-thought annotations to provide explicit
+            and interpretable reasoning steps. We further develop FeVOS-R1, an
+            MLLM-based model trained on our dataset via a two-stage pipeline of
+            supervised fine-tuning and reinforcement learning. FeVOS-R1 not only
+            achieves state-of-the-art performance on FeVOS, but also demonstrates
+            strong generalization to existing RVOS benchmarks. We hope this work can
+            inspire more research on predictive reasoning in video perception.
+          </p>
+        </div>
+
+        <ul class="highlight-grid reveal">
+          <li>
+            <span class="highlight-grid__icon"><i class="fas fa-clock-rotate-left"></i></span>
+            <h3>New Task</h3>
+            <p>Foresight expressions query <em>future</em> events; masks answer in the observed frames.</p>
+          </li>
+          <li>
+            <span class="highlight-grid__icon"><i class="fas fa-layer-group"></i></span>
+            <h3>New Dataset</h3>
+            <p>968 clips, 14.5K expressions and 2.9K chain-of-thought reasoning traces.</p>
+          </li>
+          <li>
+            <span class="highlight-grid__icon"><i class="fas fa-bullseye"></i></span>
+            <h3>New Model</h3>
+            <p>FeVOS-R1 pairs SFT with GRPO for end-to-end, reasoning-aware segmentation.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- DATASET -->
+    <section class="section-x section-x--soft" id="dataset">
+      <div class="wrap">
+        <div class="kicker reveal"><span>02</span> Dataset</div>
+        <h2 class="section-x__title reveal">FeVOS, built for predictive grounding</h2>
+        <div class="prose reveal">
+          <p>
+            Given a video clip and a predictive expression describing future events,
+            the model outputs pixel-level segmentation masks for objects in the
+            observed frames. Unlike traditional RVOS, our task requires reasoning
+            about future actions or events based solely on cues from observed frames.
+          </p>
+          <p>
+            Through our annotation pipeline, we curated FeVOS, which contains 968
+            video clips with 14,525 foresight expressions and corresponding
+            pixel-level segmentation masks. Each expression is paired with precise
+            annotations identifying target objects across all frames in the
+            observation segment. Additionally, we generated 2,904 synthetic
+            chain-of-thought annotations to provide explicit reasoning supervision.
+          </p>
+        </div>
+
+        <div class="stat-cards reveal">
+          <div class="stat-card"><strong>968</strong><span>Video clips</span></div>
+          <div class="stat-card"><strong>14,525</strong><span>Foresight expressions</span></div>
+          <div class="stat-card"><strong>30,125</strong><span>Referenced frames</span></div>
+          <div class="stat-card"><strong>2,904</strong><span>CoT annotations</span></div>
+        </div>
+
+        <!-- DATASET ANALYTICS -->
+        <div class="viz-head reveal">
+          <h3>A Look Inside the Annotations</h3>
+          <p>Every figure below is computed directly from the released FeVOS metadata &mdash; expressions, splits, and chain-of-thought traces.</p>
+        </div>
+
+        <div class="viz-grid">
+          <!-- future-tense gauge -->
+          <article class="viz-card viz-card--gauge reveal">
+            <div class="viz-card__head">
+              <h4>Anticipatory by Design</h4>
+              <p>Share of expressions carrying an explicit future-tense cue.</p>
+            </div>
+            <div class="gauge">
+              <svg class="gauge__svg" viewBox="0 0 140 140" aria-hidden="true">
+                <defs>
+                  <linearGradient id="gaugeGrad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#5b21b6"></stop>
+                    <stop offset="1" stop-color="#a78bfa"></stop>
+                  </linearGradient>
+                </defs>
+                <circle class="gauge__track" cx="70" cy="70" r="58" pathLength="100"></circle>
+                <circle class="gauge__arc" cx="70" cy="70" r="58" pathLength="100"
+                        transform="rotate(-90 70 70)" style="--seg:75.2"></circle>
+              </svg>
+              <div class="gauge__center">
+                <span class="gauge__num"><span data-count="75.2" data-decimals="1">0</span>%</span>
+                <span class="gauge__label">future-tense</span>
+              </div>
+            </div>
+            <ul class="viz-legend viz-legend--inline">
+              <li><span class="dot dot--a"></span>Future-tense&nbsp;<b>10,917</b></li>
+              <li><span class="dot dot--track"></span>Implicit&nbsp;<b>3,608</b></li>
+            </ul>
+          </article>
+
+          <!-- question type donut -->
+          <article class="viz-card reveal">
+            <div class="viz-card__head">
+              <h4>Question Types</h4>
+              <p>How the 14,525 foresight expressions are phrased.</p>
+            </div>
+            <div class="donut-row">
+              <svg class="donut" viewBox="0 0 140 140" aria-hidden="true">
+                <circle class="donut__track" cx="70" cy="70" r="54" pathLength="100"></circle>
+                <circle class="donut__seg" cx="70" cy="70" r="54" pathLength="100" transform="rotate(-90 70 70)"
+                        style="--seg:57.1; stroke:#4c1d95; stroke-dashoffset:0"></circle>
+                <circle class="donut__seg" cx="70" cy="70" r="54" pathLength="100" transform="rotate(-90 70 70)"
+                        style="--seg:32.0; stroke:#7c3aed; stroke-dashoffset:-57.1"></circle>
+                <circle class="donut__seg" cx="70" cy="70" r="54" pathLength="100" transform="rotate(-90 70 70)"
+                        style="--seg:7.8; stroke:#a78bfa; stroke-dashoffset:-89.1"></circle>
+                <circle class="donut__seg" cx="70" cy="70" r="54" pathLength="100" transform="rotate(-90 70 70)"
+                        style="--seg:3.1; stroke:#ddd6fe; stroke-dashoffset:-96.9"></circle>
+              </svg>
+              <ul class="viz-legend">
+                <li><span class="dot" style="background:#4c1d95"></span>What<b>57.1%</b></li>
+                <li><span class="dot" style="background:#7c3aed"></span>Which<b>32.0%</b></li>
+                <li><span class="dot" style="background:#a78bfa"></span>Who<b>7.8%</b></li>
+                <li><span class="dot" style="background:#ddd6fe"></span>Where&nbsp;/&nbsp;other<b>3.1%</b></li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <!-- foresight cue words -->
+        <article class="viz-card reveal">
+          <div class="viz-card__head">
+            <h4>Foresight Cue Words</h4>
+            <p>Most frequent future-pointing tokens across all expressions.</p>
+          </div>
+          <ul class="bars">
+            <li class="bar-row" style="--pct:100"><span class="bar-label">will</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-val">9,223</span></li>
+            <li class="bar-row" style="--pct:36.6"><span class="bar-label">next</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-val">3,380</span></li>
+            <li class="bar-row" style="--pct:17.9"><span class="bar-label">collide</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-val">1,655</span></li>
+            <li class="bar-row" style="--pct:15.5"><span class="bar-label">upcoming</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-val">1,425</span></li>
+            <li class="bar-row" style="--pct:15.1"><span class="bar-label">later</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-val">1,393</span></li>
+            <li class="bar-row" style="--pct:12.8"><span class="bar-label">going</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-val">1,177</span></li>
+          </ul>
+        </article>
+
+        <div class="viz-grid">
+          <!-- frames per video histogram -->
+          <article class="viz-card reveal">
+            <div class="viz-card__head">
+              <h4>Frames per Clip</h4>
+              <p>Observation length varies widely &mdash; <em>31 frames</em> on average.</p>
+            </div>
+            <div class="hist">
+              <div class="hist__bar" style="--h:52.7"><span class="hist__col"></span><span class="hist__tick">&lt;10</span></div>
+              <div class="hist__bar" style="--h:100"><span class="hist__col"></span><span class="hist__tick">10&ndash;20</span></div>
+              <div class="hist__bar" style="--h:78.8"><span class="hist__col"></span><span class="hist__tick">20&ndash;30</span></div>
+              <div class="hist__bar" style="--h:62.9"><span class="hist__col"></span><span class="hist__tick">30&ndash;40</span></div>
+              <div class="hist__bar" style="--h:69.4"><span class="hist__col"></span><span class="hist__tick">40&ndash;60</span></div>
+              <div class="hist__bar" style="--h:31.4"><span class="hist__col"></span><span class="hist__tick">60+</span></div>
+            </div>
+          </article>
+
+          <!-- reasoning length histogram -->
+          <article class="viz-card reveal">
+            <div class="viz-card__head">
+              <h4>Reasoning Trace Length</h4>
+              <p>Chain-of-thought traces average <em>102 words</em> of spatio-temporal reasoning.</p>
+            </div>
+            <div class="hist">
+              <div class="hist__bar" style="--h:2.9"><span class="hist__col"></span><span class="hist__tick">&lt;60</span></div>
+              <div class="hist__bar" style="--h:44.5"><span class="hist__col"></span><span class="hist__tick">60&ndash;80</span></div>
+              <div class="hist__bar" style="--h:100"><span class="hist__col"></span><span class="hist__tick">80&ndash;100</span></div>
+              <div class="hist__bar" style="--h:73.2"><span class="hist__col"></span><span class="hist__tick">100&ndash;120</span></div>
+              <div class="hist__bar" style="--h:30.0"><span class="hist__col"></span><span class="hist__tick">120&ndash;140</span></div>
+              <div class="hist__bar" style="--h:20.6"><span class="hist__col"></span><span class="hist__tick">140+</span></div>
+            </div>
+          </article>
+        </div>
+
+        <!-- INTERACTIVE CASE GALLERY -->
+        <div class="viz-head reveal" style="margin-top:2.8rem;">
+          <h3>Watch the Model Anticipate</h3>
+          <p>Real validation clips. The <span class="case-inline-key">violet mask</span> marks the object a future event will involve &mdash; tracked across the observed frames before the event happens.</p>
+        </div>
+
+        <div class="case-player reveal" id="case-player">
+          <div class="case-stage">
+            <div class="case-stage__media">
+              <img class="case-gif" id="case-gif" src="assets/cases/cut_bamboo.webp" alt="FeVOS predicted target highlighted across video frames" loading="lazy">
+              <span class="case-stage__live"><span class="case-stage__dot"></span>LIVE</span>
+              <span class="case-tag" id="case-tag">Real-world</span>
+            </div>
+            <div class="case-stage__info">
+              <div class="case-qa">
+                <div class="case-qa__row">
+                  <span class="case-qa__lab">Foresight expression</span>
+                  <p class="case-q" id="case-q">What will be cut?</p>
+                </div>
+                <div class="case-qa__row">
+                  <span class="case-qa__lab case-qa__lab--ans">Predicted target</span>
+                  <p class="case-a" id="case-a"><span class="case-a__chip">the bamboo leaves</span></p>
+                </div>
+              </div>
+              <div class="case-progress" id="case-progress" aria-hidden="true"></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <section class="section is-light">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column">
-            <h2 class="title is-3 has-text-centered">Dataset</h2>
-            <div class="content has-text-justified narrow-copy">
-              <p>
-                Given a video clip and a predictive expression describing future events,
-                the model outputs pixel-level segmentation masks for objects in the
-                observed frames. Unlike traditional RVOS, our task requires reasoning
-                about future actions or events based solely on cues from observed frames.
-              </p>
-              <p>
-                Through our annotation pipeline, we curated FeVOS, which contains 968
-                video clips with 14,525 foresight expressions and corresponding
-                pixel-level segmentation masks. Each expression is paired with precise
-                annotations identifying target objects across all frames in the
-                observation segment. Additionally, we generated 2,904 synthetic
-                chain-of-thought annotations to provide explicit reasoning supervision.
-              </p>
-            </div>
-            <img class="paper-image" src="assets/examples.png" alt="Representative FeVOS samples with foresight expressions and reasoning annotations.">
+          <div class="case-tabs" role="tablist" aria-label="Example clips">
+            <button class="case-tab is-active" role="tab" aria-selected="true"
+                    data-gif="assets/cases/cut_bamboo.webp" data-poster="assets/cases/cut_bamboo.jpg"
+                    data-q="What will be cut?" data-a="the bamboo leaves" data-type="Real-world">
+              <img src="assets/cases/cut_bamboo.jpg" alt="" loading="lazy">
+              <span class="case-tab__cap">Tool use</span>
+            </button>
+            <button class="case-tab" role="tab" aria-selected="false"
+                    data-gif="assets/cases/shake_shaker.webp" data-poster="assets/cases/shake_shaker.jpg"
+                    data-q="What is going to be shaken?" data-a="the shaker" data-type="Real-world">
+              <img src="assets/cases/shake_shaker.jpg" alt="" loading="lazy">
+              <span class="case-tab__cap">Object handling</span>
+            </button>
+            <button class="case-tab" role="tab" aria-selected="false"
+                    data-gif="assets/cases/ship_sink.webp" data-poster="assets/cases/ship_sink.jpg"
+                    data-q="Which ship will sink?" data-a="the red ship" data-type="Real-world">
+              <img src="assets/cases/ship_sink.jpg" alt="" loading="lazy">
+              <span class="case-tab__cap">Event outcome</span>
+            </button>
+            <button class="case-tab" role="tab" aria-selected="false"
+                    data-gif="assets/cases/taste_dish.webp" data-poster="assets/cases/taste_dish.jpg"
+                    data-q="Who will taste the dish?" data-a="the man on the left" data-type="Real-world">
+              <img src="assets/cases/taste_dish.jpg" alt="" loading="lazy">
+              <span class="case-tab__cap">Human action</span>
+            </button>
           </div>
         </div>
+
+        <figure class="figure-x reveal">
+          <img class="paper-image" src="assets/examples.webp" alt="Representative FeVOS samples with foresight expressions and reasoning annotations.">
+          <figcaption>Representative FeVOS samples &mdash; foresight questions, chain-of-thought reasoning, and the predicted target masks across observed frames.</figcaption>
+        </figure>
+
+        <div class="wordcloud-grid reveal">
+          <figure class="figure-x">
+            <img class="paper-image" src="assets/meta_expression_wordcloud.webp" alt="Word cloud of FeVOS foresight expressions.">
+            <figcaption>Foresight expressions are dominated by future-tense cues &mdash; <em>will</em>, <em>next</em>, <em>going</em>, <em>collide</em>.</figcaption>
+          </figure>
+          <figure class="figure-x">
+            <img class="paper-image" src="assets/reasoning_wordcloud.webp" alt="Word cloud of FeVOS chain-of-thought reasoning annotations.">
+            <figcaption>Chain-of-thought traces reveal the spatio-temporal reasoning behind each predicted target.</figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container is-max-desktop">
-        <h2 class="title is-3 has-text-centered">Baseline Method</h2>
-        <div class="content has-text-justified narrow-copy">
+    <!-- METHOD -->
+    <section class="section-x" id="method">
+      <div class="wrap">
+        <div class="kicker reveal"><span>03</span> Method</div>
+        <h2 class="section-x__title reveal">FeVOS-R1: reason, then segment</h2>
+        <div class="prose reveal">
           <p>
             Sa2VA is a unified framework that integrates MLLM with SAM2 for referring
             video object segmentation. The architecture consists of three key
@@ -200,14 +453,33 @@
             directly maximizes segmentation accuracy.
           </p>
         </div>
-        <img class="paper-image" src="assets/method.png" alt="Overview of the FeVOS-R1 two-stage training pipeline.">
+
+        <div class="stage-grid reveal">
+          <div class="stage-card">
+            <span class="stage-card__tag">Stage 1</span>
+            <h3>Supervised Fine-tuning</h3>
+            <p>Learns preliminary reasoning from synthetic chain-of-thought supervision with text and mask losses.</p>
+          </div>
+          <div class="stage-card stage-card--accent">
+            <span class="stage-card__tag">Stage 2</span>
+            <h3>Reinforcement Learning</h3>
+            <p>GRPO refines the reasoning process toward high-quality masks with an IoU reward and KL penalty.</p>
+          </div>
+        </div>
+
+        <figure class="figure-x reveal">
+          <img class="paper-image" src="assets/method.webp" alt="Overview of the FeVOS-R1 two-stage training pipeline.">
+          <figcaption>Overview of the FeVOS-R1 two-stage training pipeline.</figcaption>
+        </figure>
       </div>
     </section>
 
-    <section class="section is-light" id="results">
-      <div class="container is-max-desktop">
-        <h2 class="title is-3 has-text-centered">Results</h2>
-        <div class="content has-text-justified narrow-copy">
+    <!-- RESULTS -->
+    <section class="section-x section-x--soft" id="results">
+      <div class="wrap">
+        <div class="kicker reveal"><span>04</span> Results</div>
+        <h2 class="section-x__title reveal">State of the art</h2>
+        <div class="prose reveal">
           <p>
             We comprehensively benchmark a range of recent video segmentation models on
             the proposed FeVOS dataset. Zero-shot models exhibit substantial difficulty
@@ -239,55 +511,128 @@
             reasoning-intensive scenes.
           </p>
         </div>
-        <figure class="result-figure">
-          <img src="assets/table_fevos.png" alt="Main quantitative results on the FeVOS dataset.">
-        </figure>
-        <figure class="result-figure">
-          <img src="assets/table_generalization.png" alt="Quantitative generalization results on ReVOS and MeViS.">
-        </figure>
+
+        <div class="data-table-wrap reveal">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th class="col-name">Method</th>
+                <th class="col-backbone">Backbone</th>
+                <th>J</th>
+                <th>F</th>
+                <th>J&amp;F</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="group-row"><td colspan="5">Zero-shot baselines</td></tr>
+              <tr><td class="col-name">ReferFormer</td><td class="col-backbone">ResNet-50</td><td>16.4</td><td>20.0</td><td>18.2</td></tr>
+              <tr><td class="col-name">LMPM</td><td class="col-backbone">Swin-T</td><td>17.1</td><td>20.7</td><td>18.9</td></tr>
+              <tr><td class="col-name">VISA</td><td class="col-backbone">Chat-UniVi-7B</td><td>22.9</td><td>28.2</td><td>25.6</td></tr>
+              <tr><td class="col-name">VideoLISA</td><td class="col-backbone">LLaVA-Phi-3-V-3.8B</td><td>22.9</td><td>29.4</td><td>26.1</td></tr>
+              <tr><td class="col-name">VideoGLaMM</td><td class="col-backbone">Phi3-Mini-3.8B</td><td>21.7</td><td>26.7</td><td>24.2</td></tr>
+              <tr><td class="col-name">VRS-HQ</td><td class="col-backbone">Chat-UniVi-7B</td><td>28.8</td><td>33.3</td><td>31.0</td></tr>
+              <tr><td class="col-name">GLUS</td><td class="col-backbone">Chat-UniVi-7B</td><td>27.4</td><td>31.7</td><td>29.6</td></tr>
+              <tr><td class="col-name">Sa2VA</td><td class="col-backbone">InternVL2.5-4B</td><td>23.7</td><td>27.2</td><td>25.4</td></tr>
+              <tr class="group-row"><td colspan="5">Fine-tuned on FeVOS</td></tr>
+              <tr><td class="col-name">GLUS*</td><td class="col-backbone">Chat-UniVi-7B</td><td>31.0</td><td>35.9</td><td>33.5</td></tr>
+              <tr><td class="col-name">Sa2VA*</td><td class="col-backbone">InternVL2.5-4B</td><td>33.1</td><td>38.4</td><td>35.8</td></tr>
+              <tr class="is-ours"><td class="col-name">FeVOS-R1 (ours)</td><td class="col-backbone">InternVL2.5-4B</td><td><strong>39.5</strong></td><td><strong>45.1</strong></td><td><strong>42.3</strong></td></tr>
+            </tbody>
+          </table>
+          <p class="data-table-caption">Main results on the FeVOS dataset. * indicates the model is fine-tuned on FeVOS.</p>
+        </div>
+
+        <div class="data-table-wrap reveal">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th class="col-name" rowspan="2">Method</th>
+                <th class="col-backbone" rowspan="2">Backbone</th>
+                <th class="col-group-head divider" colspan="3">ReVOS</th>
+                <th class="col-group-head divider" colspan="3">MeViS</th>
+              </tr>
+              <tr>
+                <th class="divider">Ref.</th>
+                <th>Reas.</th>
+                <th>All</th>
+                <th class="divider">J</th>
+                <th>F</th>
+                <th>J&amp;F</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="col-name">ReferFormer</td><td class="col-backbone">ResNet50</td><td class="divider">16.9</td><td>12.8</td><td>14.9</td><td class="divider">-</td><td>-</td><td>-</td></tr>
+              <tr><td class="col-name">ReferFormer</td><td class="col-backbone">Video-Swin-B</td><td class="divider">32.7</td><td>23.4</td><td>28.1</td><td class="divider">29.8</td><td>32.2</td><td>31.0</td></tr>
+              <tr><td class="col-name">LMPM</td><td class="col-backbone">Swin-T</td><td class="divider">34.1</td><td>18.8</td><td>26.4</td><td class="divider">34.2</td><td>40.2</td><td>37.2</td></tr>
+              <tr><td class="col-name">LISA</td><td class="col-backbone">LLaVA-7B</td><td class="divider">45.7</td><td>36.1</td><td>40.9</td><td class="divider">35.1</td><td>39.4</td><td>37.2</td></tr>
+              <tr><td class="col-name">TrackGPT</td><td class="col-backbone">LLaVA-7B</td><td class="divider">-</td><td>-</td><td>-</td><td class="divider">37.6</td><td>42.6</td><td>40.1</td></tr>
+              <tr><td class="col-name">VISA</td><td class="col-backbone">Chat-UniVi-7B</td><td class="divider">50.9</td><td>43.0</td><td>46.9</td><td class="divider">40.7</td><td>46.3</td><td>43.5</td></tr>
+              <tr><td class="col-name">VISA</td><td class="col-backbone">LLaVA-7B</td><td class="divider">51.0</td><td>43.2</td><td>47.1</td><td class="divider">-</td><td>-</td><td>-</td></tr>
+              <tr><td class="col-name">VideoLISA</td><td class="col-backbone">LLaVA-Phi-3-V-3.8B</td><td class="divider">-</td><td>-</td><td>-</td><td class="divider">41.3</td><td>47.6</td><td>44.4</td></tr>
+              <tr><td class="col-name">VideoGLaMM</td><td class="col-backbone">Phi3-Mini-3.8B</td><td class="divider">-</td><td>-</td><td>-</td><td class="divider">42.1</td><td>48.2</td><td>45.2</td></tr>
+              <tr><td class="col-name">VRS-HQ</td><td class="col-backbone">Chat-UniVi-7B</td><td class="divider">62.1</td><td>56.1</td><td>59.1</td><td class="divider">47.6</td><td>53.7</td><td>50.6</td></tr>
+              <tr><td class="col-name">GLUS</td><td class="col-backbone">Chat-UniVi-7B</td><td class="divider">58.3</td><td>51.4</td><td>54.9</td><td class="divider"><strong>48.5</strong></td><td><strong>54.2</strong></td><td><strong>51.3</strong></td></tr>
+              <tr><td class="col-name">Sa2VA</td><td class="col-backbone">InternVL2.5-4B</td><td class="divider">62.5</td><td>55.6</td><td>59.1</td><td class="divider">-</td><td>-</td><td>46.4</td></tr>
+              <tr><td class="col-name">Sa2VA*</td><td class="col-backbone">InternVL2.5-4B</td><td class="divider">61.0</td><td>55.2</td><td>58.1</td><td class="divider">43.4</td><td>49.7</td><td>46.5</td></tr>
+              <tr class="is-ours"><td class="col-name">FeVOS-R1 (ours)</td><td class="col-backbone">InternVL2.5-4B</td><td class="divider"><strong>62.8</strong></td><td><strong>57.8</strong></td><td><strong>60.3</strong></td><td class="divider">46.2</td><td>52.7</td><td>49.5</td></tr>
+            </tbody>
+          </table>
+          <p class="data-table-caption">Quantitative results on ReVOS and MeViS.</p>
+        </div>
       </div>
     </section>
 
-    <section class="section" id="citation">
-      <div class="container is-max-desktop content">
-        <div class="bibtex-header">
-          <h2 class="title">BibTeX</h2>
-          <button class="copy-bibtex-btn" type="button" data-copy-target="bibtex-code">
-            <span class="icon"><i class="fas fa-copy"></i></span>
-            <span data-copy-label>Copy</span>
-          </button>
-        </div>
-        <pre id="bibtex-code"><code>@inproceedings{FeVOS,
+    <!-- CITATION -->
+    <section class="section-x" id="citation">
+      <div class="wrap">
+        <div class="kicker reveal"><span>05</span> BibTeX</div>
+        <div class="bibtex-card reveal">
+          <div class="bibtex-header">
+            <h2 class="bibtex-title">Cite this work</h2>
+            <button class="copy-bibtex-btn" type="button" data-copy-target="bibtex-code">
+              <span class="icon"><i class="fas fa-copy"></i></span>
+              <span data-copy-label>Copy</span>
+            </button>
+          </div>
+          <pre id="bibtex-code"><code>@inproceedings{FeVOS,
   title={{FeVOS}: Foresight Expression Video Object Segmentation},
   author={Lan, Kehan and Ying, Kaining and Ding, Henghui},
   booktitle={European Conference on Computer Vision (ECCV)},
   year={2026}
+}
 }</code></pre>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-  <div class="container copyright text-center mt-4">
-      <center><a rel="license" target="_blank" data-spdx="CC-BY-NC-SA-4.0" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0"src="static/images/cc_88x31.png" /></a></center>
-      <div class="mt-2">
-        
-      </div>
-    </div>
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-        <p>FeVOS is licensed under a <a rel="license" data-spdx="CC-BY-NC-SA-4.0"href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC-BY-NC-SA-4.0 License</a> and is released for non-commercial research use only. For uses beyond this license, please contact henghui.ding[AT]gmail.com.</p>
-
-          <p>
-            <center><font size=2>© <a href="https://github.com/FudanCVL" target="_blank">FudanCVL</a> | Last updated: 25/06/2026</font></center>
-          </p>
-
+  <footer class="footer-x">
+    <div class="wrap">
+      <div class="footer-x__top">
+        <div class="footer-x__brand">
+          <img src="assets/fevos-mark.svg" alt="FeVOS mark" width="34" height="34">
+          <div>
+            <strong>FeVOS</strong>
+            <span>Foresight Expression Video Object Segmentation &middot; ECCV 2026</span>
+          </div>
+        </div>
+        <div class="footer-x__links">
+          <a href="https://arxiv.org/abs/2606.25585" target="_blank" rel="noreferrer"><i class="ai ai-arxiv"></i> arXiv</a>
+          <a href="https://github.com/FudanCVL/FeVOS/" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> Code</a>
+          <a href="https://huggingface.co/datasets/FudanCVL/FeVOS" target="_blank" rel="noreferrer"><span class="hf-icon">&#129303;</span> Dataset</a>
+          <a href="https://huggingface.co/FudanCVL/FeVOS-R1" target="_blank" rel="noreferrer"><span class="hf-icon">&#129303;</span> Checkpoint</a>
         </div>
       </div>
+      <div class="footer-x__bottom">
+        <p><center><a rel="license" target="_blank" data-spdx="CC-BY-NC-SA-4.0" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0"src="static/images/cc_88x31.png" /></a></center></p>
+        <p>FeVOS is licensed under a <a rel="license" data-spdx="CC-BY-NC-SA-4.0"href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC-BY-NC-SA-4.0 License</a> and is released for non-commercial research use only. For uses beyond this license, please contact henghui.ding[AT]gmail.com.</p>
+        <p><center> &copy; <a href="https://github.com/FudanCVL" target="_blank">FudanCVL</a> &middot; Fudan University  | Last updated: 01/07/2026 </center></p>
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
+
+  <button class="to-top" id="to-top" type="button" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
 </body>
 </html>
